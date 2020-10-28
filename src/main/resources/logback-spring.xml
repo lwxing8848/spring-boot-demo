@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	<property name="log.path" value="/data/logs"/>
+	
+	<!-- 输出到控制台 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<!-- 输出格式 -->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+<!--	&lt;!&ndash; error级别单独记录 &ndash;&gt;-->
+<!--	<appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--		<file>${log.path}/error.log</file>-->
+<!--		&lt;!&ndash; 以day为单位自动回滚 &ndash;&gt;-->
+<!--		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--			&lt;!&ndash; 按天回滚 daily &ndash;&gt;-->
+<!--			<fileNamePattern>${log.path}/error/error_%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+<!--			&lt;!&ndash; 日志最大的历史30天 &ndash;&gt;-->
+<!--			<maxHistory>30</maxHistory>-->
+<!--			&lt;!&ndash; 日志文件最大的大小 &ndash;&gt;-->
+<!--			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--				<maxFileSize>100MB</maxFileSize>-->
+<!--			</timeBasedFileNamingAndTriggeringPolicy>-->
+<!--		</rollingPolicy>-->
+<!--		<encoder>-->
+<!--			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] %-5level%logger{35} - %msg%n</pattern>-->
+<!--			<charset>UTF-8</charset>-->
+<!--		</encoder>-->
+<!--		&lt;!&ndash; error级别过滤器 &ndash;&gt;-->
+<!--		<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--			<level>ERROR</level>-->
+<!--			<onMatch>ACCEPT</onMatch>-->
+<!--			<onMismatch>DENY</onMismatch>-->
+<!--		</filter>-->
+<!--	</appender>-->
+
+<!--	&lt;!&ndash; warn级别单独记录 &ndash;&gt;-->
+<!--	<appender name="warnAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--		<file>${log.path}/warn.log</file>-->
+<!--		&lt;!&ndash; 以day为单位自动回滚 &ndash;&gt;-->
+<!--		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--			&lt;!&ndash; 按天回滚 daily &ndash;&gt;-->
+<!--			<fileNamePattern>${log.path}/warn/warn_%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>-->
+<!--			&lt;!&ndash; 日志最大的历史30天 &ndash;&gt;-->
+<!--			<maxHistory>30</maxHistory>-->
+<!--			&lt;!&ndash; 日志文件最大的大小 &ndash;&gt;-->
+<!--			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--				<maxFileSize>100MB</maxFileSize>-->
+<!--			</timeBasedFileNamingAndTriggeringPolicy>-->
+<!--		</rollingPolicy>-->
+<!--		<encoder>-->
+<!--			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] %-5level%logger{35} - %msg%n</pattern>-->
+<!--			<charset>UTF-8</charset>-->
+<!--		</encoder>-->
+<!--		&lt;!&ndash; warn级别过滤器 &ndash;&gt;-->
+<!--		<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--			<level>WARN</level>-->
+<!--			<onMatch>ACCEPT</onMatch>-->
+<!--			<onMismatch>DENY</onMismatch>-->
+<!--		</filter>-->
+<!--	</appender>-->
+
+	<!-- info级别单独记录 -->
+	<appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/info.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/info/info_%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<!-- 日志最大的历史30天 -->
+			<maxHistory>30</maxHistory>
+			<!-- 日志文件最大的大小 -->
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-4relative [%thread] %-5level%logger{35} - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<!-- info级别过滤器 -->
+<!--		<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+<!--			<level>INFO</level>-->
+<!--			<onMatch>ACCEPT</onMatch>-->
+<!--			<onMismatch>DENY</onMismatch>-->
+<!--		</filter>-->
+	</appender>
+
+	<!-- 根，所有logger的祖先 -->
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+<!--		<appender-ref ref="errorAppender" />-->
+<!--		<appender-ref ref="warnAppender" />-->
+		<appender-ref ref="infoAppender" />
+	</root>
+</configuration>
