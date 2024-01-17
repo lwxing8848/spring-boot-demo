@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 import java.util.Scanner;
 
@@ -15,13 +16,12 @@ import java.util.Scanner;
  * @apiNote mybatis代码生成器
  */
 public class CodeGenerator {
-    private static String user = "root";
-    private static String pass = "admin";
-    private static String address = "jdbc:mysql://127.0.0.1:3306/test";
-    private static String drive = "com.mysql.jdbc.Driver";
+    private static String user = "aicc";
+    private static String pass = "xwyXNlwVflXHl2pyR1SY";
+    private static String address = "jdbc:mysql://172.22.24.46:3306/byrobot_prod";
+    private static String drive = "com.mysql.cj.jdbc.Driver";
     private static String[] tables = new String[]{
-            "demo_user",
-            "demo_product"
+            "cs_seat_status_statistics"
             };
 
     public static void main(String[] args) {
@@ -30,9 +30,9 @@ public class CodeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        gc.setOutputDir("C:\\Users\\Lwx\\Desktop\\java");
+        gc.setOutputDir("/Users/liwenxing/Desktop/java");
         //开发人员
-        gc.setAuthor("lwx");
+        gc.setAuthor("mingfu");
         //是否打开输出目录
         gc.setOpen(true);
         //service 命名方式
@@ -73,7 +73,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("模块名"));//父包模块名
-        pc.setParent("com.chinamobile.cm.face.management");
+        pc.setParent("com.tmp");
         pc.setEntity("entity");
         pc.setMapper("mapper");
         pc.setMapper("mapper");
@@ -112,7 +112,7 @@ public class CodeGenerator {
         //表前缀
         strategy.setTablePrefix("_");
         mpg.setStrategy(strategy);
-        //mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
 

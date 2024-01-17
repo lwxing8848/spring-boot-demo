@@ -35,25 +35,25 @@ spring:
         test-while-idle: true
         test-on-borrow: false
         test-on-return: false
-  redis:
-    password:
-    cluster:
-      nodes:
-        - 127.0.0.1:6303
-        - 127.0.0.1:6303
-        - 127.0.0.1:6303
-        - 127.0.0.1:6303
-        - 127.0.0.1:6303
-        - 127.0.0.1:6303
-      max-redirects: 6
-    pool:
-    jedis:
-      pool:
-        max-active: 100
-        max-idle: 5
-        max-wait: 2000
-        min-idle: 1
-        timeout: 2000
+#  redis:
+#    password:
+#    cluster:
+#      nodes:
+#        - 127.0.0.1:6303
+#        - 127.0.0.1:6303
+#        - 127.0.0.1:6303
+#        - 127.0.0.1:6303
+#        - 127.0.0.1:6303
+#        - 127.0.0.1:6303
+#      max-redirects: 6
+#    pool:
+#    jedis:
+#      pool:
+#        max-active: 100
+#        max-idle: 5
+#        max-wait: 2000
+#        min-idle: 1
+#        timeout: 2000
   #文件上传最大尺寸设置
   servlet:
     multipart:

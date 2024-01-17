@@ -31,15 +31,28 @@ public class AsyncExceptionConfig implements AsyncConfigurer {
             ex.getStackTrace();
         }
     }
+
     @Bean
-    public Executor taskExecutor() {
+    public Executor jobExecutor() {
         ThreadPoolTaskExecutor pool = new ThreadPoolTaskExecutor();
         //线程池活跃的线程数
-        pool.setCorePoolSize(5);
+        pool.setCorePoolSize(10);
         //线程池最大活跃的线程数
         pool.setMaxPoolSize(10);
         pool.setWaitForTasksToCompleteOnShutdown(true);
         pool.setThreadNamePrefix("异步线程池-");
+        return pool;
+    }
+
+    @Bean
+    public ThreadPoolTaskExecutor taskExecutor() {
+        ThreadPoolTaskExecutor pool = new ThreadPoolTaskExecutor();
+        //线程池活跃的线程数
+        pool.setCorePoolSize(20);
+        //线程池最大活跃的线程数
+        pool.setMaxPoolSize(20);
+        pool.setQueueCapacity(3400);
+        pool.setThreadNamePrefix("任务线程-");
         return pool;
     }
 

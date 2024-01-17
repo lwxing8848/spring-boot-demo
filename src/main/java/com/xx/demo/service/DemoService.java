@@ -10,4 +10,6 @@ package com.xx.demo.service;
  * @since 2020-03-16
  */
 public interface DemoService {
+
+    void execDDL(String sql);
 }

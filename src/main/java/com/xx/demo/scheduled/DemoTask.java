@@ -1,8 +1,8 @@
 package com.xx.demo.scheduled;
 
-import com.xx.demo.util.DateUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,9 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoTask {
 
-    @Scheduled(cron ="*/5 * * * * ?")
-    public void demoTask(){
-        log.info("定时任务开始执行：{}", DateUtils.getNow());
-    }
+    @Autowired
+    private ThreadPoolTaskExecutor poolTaskExecutor;
 
 }
