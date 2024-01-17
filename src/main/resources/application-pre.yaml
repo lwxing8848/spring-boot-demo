@@ -9,11 +9,11 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.22.28.236:3306/speech_quality?characterEncoding=UTF-8
-    username: root
-    password: indata_1234
+    url: jdbc:mysql://rm-m5e7iu318pgk782a6po.mysql.rds.aliyuncs.com:3306/htzlzzxt?characterEncoding=UTF-8
+    username: htzlzzxt_root
+    password: Dlchtzlzzxt@288
     filters: stat
-    maxActive: 30
+    maxActive: 20
     initialSize: 1
     maxWait: 60000
     minIdle: 1

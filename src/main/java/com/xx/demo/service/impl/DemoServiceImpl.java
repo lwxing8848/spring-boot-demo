@@ -1,7 +1,10 @@
 package com.xx.demo.service.impl;
 
+import com.xx.demo.mapper.DemoMapper;
 import com.xx.demo.service.DemoService;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -14,4 +17,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class DemoServiceImpl implements DemoService {
 
+    @Resource
+    private DemoMapper demoMapper;
+
+    @Override
+    public void execDDL(String sql) {
+        demoMapper.execDDL(sql);
+    }
 }
