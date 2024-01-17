@@ -3,12 +3,9 @@
 <mapper namespace="com.xx.demo.mapper.DemoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xx.demo.entity.DeviceData">
-        <id column="id" property="id" />
-        <result column="type" property="type" />
-        <result column="macno" property="macno" />
-        <result column="data" property="data" />
-        <result column="date" property="date" />
+    <resultMap id="BaseResultMap" type="com.xx.demo.entity.dto.DemoPO">
+        <result column="key" property="key" />
+        <result column="value" property="value" />
     </resultMap>
 
 
